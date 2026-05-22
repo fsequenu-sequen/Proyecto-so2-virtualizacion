@@ -1,9 +1,41 @@
-# Robot Asistente (JOY) + monitoreo en en la nube
+# Sistema de Monitoreo en la Nube — Ubuntu Server
 
-Aplicación Flutter para controlar el robot (WiFi, Bluetooth, modo autónomo con IA). Incluye una **pila de monitoreo** (backend + MongoDB + dashboard web) en Docker, alineada al proyecto final de Sistemas Operativos II.
+**Proyecto:** PRF-SOll — Proyecto Final de Sistemas Operativosll (Grupo #5, Sección A)
+
+---
+
+# Robot Asistente (JOY) + Sistema de Monitoreo en la Nube
+
+Aplicación robótica desarrollada para el proyecto Robot Inteligente de Asistencia Emocional, orientada al control inalámbrico, interacción inteligente y monitoreo remoto mediante infraestructura basada en Ubuntu Server y contenedores Docker.
+
+El sistema integra:
+comunicación WiFi y Bluetooth
+monitoreo remoto
+backend API
+almacenamiento de eventos
+dashboard web
+arquitectura distribuida
+
+## Introducción
+
+Este módulo corresponde al servidor Ubuntu utilizado dentro del proyecto Robot Inteligente de Asistencia Emocional.
+
+El servidor permite centralizar la recepción, monitoreo y almacenamiento de eventos generados por el robot durante su funcionamiento, facilitando el control remoto, supervisión del sistema y administración de registros del robot.
+
+La arquitectura implementada utiliza contenedores Docker para separar servicios de backend, frontend y base de datos, permitiendo una infraestructura modular, organizada y escalable.
+
+## Objetivos del servidor 
+
+Implementar monitoreo remoto del robot.
+Registrar eventos generados por el sistema.
+Centralizar información mediante Ubuntu Server.
+Permitir comunicación remota vía HTTP.
+Almacenar logs y acciones del robot.
+Implementar servicios mediante Docker Compose.
 
 ## Dirección IP pública del servidor
 
+Sustituir por la IP pública asignada al servidor Ubuntu en DigitalOcean.
 Sustituye por la IP de tu droplet de DigitalOcean (ejemplo de referencia: `142.93.3.189`).
 
 - **Dashboard web (HTTP):** `http://TU_IP/`
@@ -11,7 +43,16 @@ Sustituye por la IP de tu droplet de DigitalOcean (ejemplo de referencia: `142.9
 
 En el panel de DigitalOcean, abre los puertos **80** y **8080** (Firewall / Networking → Inbound rules).
 
-## Diseño de la arquitectura
+## Puertos utilizados
+
+| Puerto | Servicio             |
+| ------ | -------------------- |
+| 80     | Frontend / Dashboard |
+| 8080   | Backend API          |
+| 27017  | MongoDB interno      |
+
+
+## Arquitectura general del sistema
 
 ```mermaid
 flowchart LR
@@ -43,6 +84,46 @@ Flujo: la app envía eventos (comandos, ping, parada segura) al backend; el back
 | Orquestación | Docker Compose |
 
 Código de la pila: carpeta `monitoring/`.
+
+
+## Estructura del sistema
+monitoring/
+├── backend/
+├── frontend/
+├── docker-compose.yml
+├── README.md
+
+## Servicios implementados
+
+# Backend API
+
+Servicio encargado de:
+recibir eventos del robot
+almacenar logs
+procesar solicitudes HTTP
+administrar monitoreo
+
+Puerto utilizado: 80
+
+# Frontend Dashboard
+
+Interfaz web utilizada para visualizar:
+eventos registrados
+monitoreo general
+estado del sistema
+
+Puerto utilizado:80
+
+## Base de datos MongoDB
+
+Servicio encargado del almacenamiento persistente de:
+eventos
+logs
+acciones ejecutadas
+monitoreo del robot
+
+Implementado mediante contenedor Docker independiente.
+
 
 ## Instrucciones de uso
 
