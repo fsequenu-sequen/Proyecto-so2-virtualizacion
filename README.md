@@ -1,4 +1,4 @@
-# Robot Asistente (JOY) + monitoreo en la nube
+# Robot Asistente (JOY) + monitoreo en en la nube
 
 Aplicación Flutter para controlar el robot (WiFi, Bluetooth, modo autónomo con IA). Incluye una **pila de monitoreo** (backend + MongoDB + dashboard web) en Docker, alineada al proyecto final de Sistemas Operativos II.
 
