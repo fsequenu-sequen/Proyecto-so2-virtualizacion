@@ -16,7 +16,7 @@ almacenamiento de eventos
 dashboard web
 arquitectura distribuida
 
-## Introducción
+## Introducción.
 
 Este módulo corresponde al servidor Ubuntu utilizado dentro del proyecto Robot Inteligente de Asistencia Emocional.
 
