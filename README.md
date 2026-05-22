@@ -1,3 +1,33 @@
+# Entrega — Sistemas Operativos II
+
+- **Estudiante:** BRYANSECCUBUR
+- **Email:** bsecc@miumg.edu.gt
+- **Fecha:** 2026-05-21
+- **Repositorio destino:** https://github.com/BRYANSECCUBUR/SO2-PROYECTOFINAL.git
+- **Archivos incluidos en la entrega:**
+  - `monitoring/` (backend, frontend, `docker-compose.yml`)
+  - `README.md` (este archivo)
+  - `README_backup.md` (copia de seguridad de la versión original)
+
+- **Instrucciones rápidas para el corrector:**
+  1. Clonar el repo y cambiar a la rama `entrega-sistemas-operativos`.
+  2. Desde la carpeta `monitoring/` ejecutar:
+
+```bash
+docker compose up -d --build
+```
+
+  3. Verificar salud del API: `curl -s http://127.0.0.1:8080/health`.
+  4. El dashboard queda disponible en el puerto 80 del servidor (si corresponde).
+
+  Si el corrector necesita ejecutar la app móvil localmente, compilar con:
+
+```bash
+flutter run --dart-define=EVENT_LOG_URL=http://TU_IP:8080
+```
+
+---
+
 # Robot Asistente (JOY) + monitoreo en la nube
 
 Aplicación Flutter para controlar el robot (WiFi, Bluetooth, modo autónomo con IA). Incluye una **pila de monitoreo** (backend + MongoDB + dashboard web) en Docker, alineada al proyecto final de Sistemas Operativos II.
